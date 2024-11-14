@@ -1,5 +1,7 @@
 import 'package:bubble_graph/core/model/bubble_data.dart';
-import 'package:bubble_graph/ui/screen/custom_bubble/updated_v/custom_bubble_chart_uup.dart';
+import 'package:bubble_graph/ui/screen/custom_bubble/updated_v/bubble_chart_double_block.dart';
+import 'package:bubble_graph/ui/screen/custom_bubble/updated_v/bubble_chart_full_block.dart';
+import 'package:bubble_graph/ui/screen/custom_bubble/updated_v/bubble_chart_small_block.dart';
 import 'package:flutter/material.dart';
 
 class BubbleScreen extends StatefulWidget {
@@ -49,50 +51,25 @@ class _BubbleScreenState extends State<BubbleScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  height: 500,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[500],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: CustomBubbleChartUUP(bubbles: bubbleData, blockSize: "full",)
-                ),
-              ),
-          
               const SizedBox(height: 20),
-          
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  height: 180,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[500],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: CustomBubbleChartUUP(bubbles: bubbleData, blockSize: "double",)
-                ),
-              ),
-          
-              const SizedBox(height: 20),
-          
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  height: 180,
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[500],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: CustomBubbleChartUUP(bubbles: bubbleData, blockSize: "small",)
-                ),
+
+              BubbleChartFullBlock(
+                bubbleData: bubbleData,
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 50),
+
+              BubbleChartDoubleBlock(
+                bubbleData: bubbleData,
+              ),
+
+              const SizedBox(height: 50),
+
+              BubbleChartSmallBlock(
+                bubbleData: bubbleData,
+              ),
+
+              const SizedBox(height: 50),
             ],
           ),
         ),

@@ -31,6 +31,7 @@ class PositionedBubble extends StatelessWidget {
           height: scaledSize,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
+            //color: bubble.color,
             gradient: RadialGradient(
               colors: [
                 bubble.color.withOpacity(0.2),
